@@ -1,7 +1,6 @@
 import { user } from "@/app/User";
 import { NextResponse, NextRequest } from "next/server";
 
-// pagination用のAPIRoute
 export async function GET(
   req: NextRequest,
   { params }: { params: { page: number } }
