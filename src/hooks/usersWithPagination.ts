@@ -7,7 +7,9 @@ const fetcher = (url: string) =>
 
 export const usersWithPagination = (page: number) => {
   // eslint-disable-next-line react-hooks/rules-of-hooks
-  const { data, error } = useSWR(`api/usersPage/${page}`, fetcher);
+  const { data, error } = useSWR(`api/usersPage/${page}`, fetcher, {
+    revalidateIfStale: false,
+  });
   return {
     users: data?.users,
     totalPages: data?.totalPages,
