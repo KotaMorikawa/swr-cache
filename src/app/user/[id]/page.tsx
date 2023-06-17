@@ -1,7 +1,8 @@
 import UserContainer from "@/components/User/UserContainer";
 
 const page = async ({ params }: { params: { id: string } }) => {
-  const user = await fetch(`http://localhost:3000/api/user/${params.id}`, {
+  const url = process.env.VERCEL_URL || "http://localhost:3000";
+  const user = await fetch(`${url}/api/user/${params.id}`, {
     cache: "force-cache",
   }).then((res) => res.json());
 
