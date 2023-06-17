@@ -44,6 +44,11 @@ const UsersList = () => {
         </button>
       </div>
       <p>{time}</p>
+      <p>
+        {process.env.NEXT_PUBLIC_VERCEL_URL
+          ? process.env.NEXT_PUBLIC_VERCEL_URL
+          : "localhost"}
+      </p>
     </div>
   );
 };
