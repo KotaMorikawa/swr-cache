@@ -5,7 +5,9 @@ export async function GET(
   _req: NextRequest,
   { params }: { params: { id: string } }
 ) {
-  const targetUser = user.find((user) => user.id === Number(params.id));
+  const targetUser: User | undefined = user.find(
+    (user) => user.id === Number(params.id)
+  );
 
   return NextResponse.json(targetUser);
 }
