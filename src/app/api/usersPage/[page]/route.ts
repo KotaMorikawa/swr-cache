@@ -1,4 +1,4 @@
-import { user } from "@/app/User";
+// import { user } from "@/app/User";
 import { NextResponse, NextRequest } from "next/server";
 
 export async function GET(
@@ -9,6 +9,10 @@ export async function GET(
 
   const startIndex = (params.page - 1) * itemsPerPage;
   const endIndex = startIndex + itemsPerPage;
+  const user = await fetch("https://jsonplaceholder.typicode.com/posts").then(
+    (res) => res.json()
+  );
+
   const users = user.slice(startIndex, endIndex);
 
   const totalPages = Math.ceil(user.length / itemsPerPage);

@@ -7,9 +7,9 @@ const ListUser = ({ user }: { user: User }) => {
     <Link href={`/user/${user.id}`}>
       <div className="flex space-x-5">
         <p>{user.id}</p>
-        <p>{user.name}</p>
-        <p>{user.email}</p>
-        <p>{user.memo}</p>
+        <p>{user.title}</p>
+        <p>{user.body}</p>
+        <p>{user.userId}</p>
       </div>
     </Link>
   );

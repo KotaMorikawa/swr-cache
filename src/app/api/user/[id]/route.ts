@@ -1,13 +1,17 @@
-import { user } from "@/app/User";
+// import { user } from "@/app/User";
 import { NextResponse, NextRequest } from "next/server";
 
 export async function GET(
   _req: NextRequest,
   { params }: { params: { id: string } }
 ) {
-  const targetUser: User | undefined = user.find(
-    (user) => user.id === Number(params.id)
+  const users = await fetch("https://jsonplaceholder.typicode.com/posts").then(
+    (res) => res.json()
   );
 
-  return NextResponse.json(targetUser);
+  const targetUser = users.filter(
+    (user: User) => user.id === Number(params.id)
+  );
+
+  return NextResponse.json(targetUser[0]);
 }

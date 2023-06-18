@@ -1,6 +1,6 @@
 interface User {
+  userId: number;
   id: number;
-  name: string;
-  email: string;
-  memo: string;
+  title: string;
+  body: string;
 }
